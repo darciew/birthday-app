@@ -1,21 +1,39 @@
-<!-- Welcome Header -->
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
-<h1>Birthdays are great! When is yours?</h1>
+  <head>
+    <meta charset="utf-8">
+    <title>Birthday App!</title>
 
-<!-- Ask user for their name and birthday -->
+    <link rel="stylesheet" type="text/css" href="styling.css">
 
-<section>
-  <div>
-    <form action='/info' method='post'>
-      <label for='name'>
-        Please state your name:
-        <input type='text' name='name'>
-      </label>
-      <label for='birthday'>
-        Please enter your birthday
-        <input type='date' name='birthday'>
-        </label>
-        <input type="submit" value="Send">
-    </form>
-  </div>
-</section>
+</head>
+  <body>
+      <!-- Welcome Header -->
+    <section>
+      <h1>Birthdays are great!</h1>
+      <h2>When is yours?</h2>
+
+      <!-- Ask user for their name and birthday -->
+      <div>
+        <form action='/info' method='post'>
+          <label for='name'>
+            Please state your name:
+            <br>
+            <input type='text' id='input' name='name'>
+          </label>
+          <br>
+          <br>
+          <label for='birthday'>
+            Please enter your next birthday:
+            <br>
+            <input type='date' id='input' name='birthday'>
+          </label>
+            <br>
+            <br>
+            <input type='submit' id='submit' value='Send'>
+        </form>
+      </div>
+    </section>
+  </body>
+</html>

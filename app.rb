@@ -1,7 +1,9 @@
 require 'sinatra/base'
 
 class App < Sinatra::Base
+  attr_reader :birthday, :name, :bday
 
+  set :static, true
   enable :sessions
   set :session_secret, 'secret'
 
@@ -13,18 +15,18 @@ class App < Sinatra::Base
     session[:name] = params[:name]
     session[:birthday] = params[:birthday]
     p params
-    redirect '/its-your-birthday'
+    redirect '/birthday'
   end
 
-  get '/its-your-birthday' do
+  get '/birthday' do
     @name = session[:name]
     @birthday = session[:birthday]
     today = Date.today
-    date = Date.parse @birthday
-      if date == today
+    @bday = Date.parse @birthday
+      if bday == today
         @bday_str = "Happy birthday #{@name}!"
-      elsif date != today
-        days = ((date - today) % 365).to_i
+      elsif bday != today
+        days = ((bday - today) % 365).to_i
         @bday_str = "#{days} days until your birthday!"
       end
     erb :birthday
